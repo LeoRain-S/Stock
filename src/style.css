@@ -168,4 +168,10 @@
     display: flex;
     justify-content: center;
   }
+
+  .signin-label {
+    display: inline-block;
+    width: 150px;
+    text-align: right;
+  }
   

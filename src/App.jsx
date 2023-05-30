@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { NewStockForm } from "./NewStockForm";
 import "./style.css";
 import { StockList } from "./StockList";
-import Plot from 'react-plotly.js';
+import { SignInPage } from "./Signin";
+
 
 export default function App() {
   const [stocks, setStocks] = useState(() => {
@@ -45,6 +46,9 @@ export default function App() {
 
   return (
     <>
+      <center>
+      <SignInPage />
+      </center>
       <center>
         <h1 className="header">Stock Market</h1>
       </center>
