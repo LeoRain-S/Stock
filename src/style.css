@@ -148,3 +148,24 @@
   .list li:has(input:checked) label:hover::before {
     background: hsl(200, 100%, 30%);
   }
+
+  .stock-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .stock-chart {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .stock-actions {
+    display: flex;
+    justify-content: center;
+  }
+  
