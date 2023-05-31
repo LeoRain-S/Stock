@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+import { CSVLink } from 'react-csv';
 
 export function SignInPage() {
   const [email, setEmail] = useState('');
@@ -8,6 +9,7 @@ export function SignInPage() {
   const [error, setError] = useState('');
   const emailInputRef = useRef(null);
   const passwordInputRef = useRef(null);
+  const [csvData, setCsvData] = useState([]);
 
   const handleLogin = () => {
     if (email === '' || password === '') {
@@ -21,10 +23,13 @@ export function SignInPage() {
 
   const handleSignup = () => {
     if (email === '' || password === '') {
-      setError('Please enter both email and password.');
+      setError('Please enter a valid email and password.');
     } else {
       setError('');
-      // Perform signup logic
+
+      const newData = [...csvData, { email, password }];
+      setCsvData(newData);
+      
       closePopup();
     }
   };
@@ -32,6 +37,7 @@ export function SignInPage() {
   const closePopup = () => {
     setEmail('');
     setPassword('');
+    setError('');
     emailInputRef.current.value = '';
     passwordInputRef.current.value = '';
 
@@ -66,7 +72,9 @@ export function SignInPage() {
                   ref={passwordInputRef}
                 />
               </div>
+              <center>
               {error && <div className='error-message'>{error}</div>}
+              </center>
               <div>
                 <center>
                   <button onClick={handleLogin}>
@@ -78,6 +86,7 @@ export function SignInPage() {
                     Sign Up
                   </button>
                 </center>
+                
               </div>
             </div>
           )
